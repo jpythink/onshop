@@ -1,0 +1,91 @@
+{% extends './base/base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+<section class="section-content padding-y bg">
+<div class="container">
+
+<!-- ============================ COMPONENT 1 ================================= -->
+<div class="card">
+	<div class="row no-gutters">
+		<aside class="col-md-6">
+<article class="gallery-wrap"> 
+	<div class="img-big-wrap">
+	   <a href="#"><img src="{{ products.product_image.url }}"></a>
+	</div> <!-- img-big-wrap.// -->
+	
+</article> <!-- gallery-wrap .end// -->
+		</aside>
+		<main class="col-md-6 border-left">
+<article class="content-body">
+
+<h2 class="title">{{ products.product_name }}</h2>
+
+<div class="mb-3"> 
+	<var class="price h4">${{ products.price }}</var> 
+</div> 
+
+<p>{{ products.description }}</p>
+
+
+<hr>
+	<div class="row">
+		<div class="item-option-select">
+			<h6>Color</h6>
+			<div class="btn-group btn-group-sm btn-group-toggle" data-toggle="buttons">
+			  <label class="btn btn-light">
+			    <input type="radio" name="radio_color" disabled> {{ products.color }}
+			  </label>
+			</div> 
+		</div>
+	</div> <!-- row.// -->
+	<div class="row">
+		<div class="item-option-select">
+			<h6>Size</h6>
+			<div class="btn-group btn-group-sm btn-group-toggle" data-toggle="buttons">
+				{% if products.size_S %}
+				<label class="btn btn-light active ">
+				{% else %}
+				<label class="btn btn-light ">
+				{% endif %}
+			  
+			    <input type="checkbox" name="radio_color" disabled> S
+			  </label>
+			  {% if products.size_M %}
+				<label class="btn btn-light active ">
+				{% else %}
+				<label class="btn btn-light ">
+				{% endif %}
+			    <input type="checkbox" name="radio_color" disabled> M
+			  </label>
+			  {% if products.size_L %}
+				<label class="btn btn-light active ">
+				{% else %}
+				<label class="btn btn-light ">
+				{% endif %}
+			    <input type="checkbox" name="radio_color" disabled> L
+			  </label>
+			</div> 
+		</div>
+	</div> <!-- row.// -->
+	<hr>
+	<a class="btn  btn-primary" onclick="history.back()" style="color: white;"><i class="fa fa-arrow-left"></i> <span class="text">Back </span></a>
+</article> <!-- product-info-aside .// -->
+		</main> <!-- col.// -->
+	</div> <!-- row.// -->
+</div> <!-- card.// -->
+<!-- ============================ COMPONENT 1 END .// ================================= -->
+
+<br>
+
+
+</div> <!-- container .//  -->
+</section>
+<!-- ========================= SECTION CONTENT END// ========================= -->
+
+</body>
+</html>
+
+{% endblock %}
