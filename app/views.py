@@ -27,7 +27,6 @@ def product_by_category(request, id):
 
 def product_details(request, id):
     products = Product.objects.get(id=id)
-    print('========================.>>>>>', products)
     context = {
         "products": products
     }
